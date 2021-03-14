@@ -1,8 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MdBusiness, MdLocationOn, MdLink } from 'react-icons/md';
-const Card = () => {
-    return <h2>card component</h2>;
+
+const Card = ({user}) => {
+    const {avatar_url, html_url, name, company, blog, bio, location, twitter_username } = user;
+    return <Wrapper>
+        <header>
+            <img src={avatar_url} alt={name}/>
+            <div>
+                <h4>{name}</h4>
+                <p>twitter : @{twitter_username || 'joe doe'}</p>
+            </div>
+            <a href={html_url}>Follow</a>
+        </header>
+        <p className={'bio'}>{bio || 'jeo doe'}</p>
+        <div className={"links"}>
+            <p><MdBusiness/> {company || 'company'}</p>
+            <p><MdLocationOn/> {location || 'earth'}</p>
+          <a href={`https://${blog}`}><MdLink/>blog</a>
+        </div>
+    </Wrapper>;
 };
 const Wrapper = styled.article`
   background: var(--clr-white);
