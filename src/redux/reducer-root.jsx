@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
 // Reducers
-import userReducer from "./users/user.reducer";
+import githubReducer from "./github/github.reducer";
 
 const rootReducer = combineReducers(
     {
-        authenticate: userReducer
+        infoGithub: githubReducer
     }
 )
 
