@@ -22,7 +22,7 @@ const DashboardPage = ({user, followers, repos, isFetching, getRepos, getUser, g
             {/*<Navbar/>*/}
             {/*<Search/>*/}
             {user && <UserInfo user={user}/> }
-            {user && <User user={user}/> }
+            {(user && followers) && <User user={user} followers={followers}/> }
         </main>
     );
 };

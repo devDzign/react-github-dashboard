@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import Card from '../card/card.components';
 import Followers from '../fllowers/followers.components';
-const User = ({user}) => {
+const User = ({user, followers}) => {
     return <section className={"section"}>
         <Wrapper className={'section-center'}>
             <Card user={user}/>
-            <Followers/>
+            <Followers followers={followers}/>
         </Wrapper>
     </section>;
 };
