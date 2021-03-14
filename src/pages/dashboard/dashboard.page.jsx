@@ -6,25 +6,24 @@ import loadingImage from '../../assets/images/preloader.gif';
 import { Navbar, Search, User, UserInfo } from '../../components'
 import { getFollowersGitHub, getReposGitHub, getUserGitHub } from "../../redux/github/github.actions";
 import { connect } from "react-redux";
+import { GoRepo } from "react-icons/go";
 
 
-const DashboardPage = ({user, isFetching, getRepos, getUser, getFollowers}) => {
+const DashboardPage = ({user, followers, repos, isFetching, getRepos, getUser, getFollowers}) => {
 
     useEffect(() => {
        getUser();
        getRepos();
        getFollowers();
-    });
+    }, [user]);
 
 
     return (
         <main>
-            <h1>  {user && <p>La valeur "SET_VALUE": {user.login}</p>}</h1>
             <Navbar/>
             <Search/>
-            <UserInfo/>
+            {user && <UserInfo user={user}/> }
             <User/>
-
         </main>
     );
 };
