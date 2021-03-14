@@ -5,10 +5,9 @@ import {connect} from "react-redux";
 
 // CSS
 import './App.css';
-import 'bootstrap/scss/bootstrap.scss'
 
 // Router
-// import { Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 // Pages
 import { isAuthenticatedUser } from "./redux/users/user.actions";
@@ -25,13 +24,11 @@ function App({isLoggedIn, isAuthenticated}) {
 
   return (
     <>
-        {/*<Switch>*/}
-        {/*    <Route exact path="/" component={HomePage}/>*/}
-        {/*</Switch>*/}
-
-        <DashboardPage></DashboardPage>
-        <LoginPage />
-        <ErrorPage />
+        <Switch>
+            <Route exact path="/" component={DashboardPage}/>
+            <Route exact path="/login" component={LoginPage}/>
+            <Route path="*" component={ErrorPage}/>
+        </Switch>
     </>
   );
 }
