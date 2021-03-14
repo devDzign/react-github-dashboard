@@ -8,14 +8,14 @@ import './App.css';
 import 'bootstrap/scss/bootstrap.scss'
 
 // Router
-import { Redirect, Route, Switch } from "react-router-dom";
+// import { Route, Switch } from "react-router-dom";
 
 // Pages
-import HomePage from "./pages/home/homepage.component";
-import ShopPage from "./pages/shop/shop.page";
-import Header from "./components/header/header.component";
 import { isAuthenticatedUser } from "./redux/users/user.actions";
-import SignInSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.page";
+import DashboardPage from "./pages/dashboard/dashboard.page";
+import LoginPage from "./pages/login/login.page";
+import ErrorPage from "./pages/error/Error.page";
+
 
 function App({isLoggedIn, isAuthenticated}) {
 
@@ -25,22 +25,13 @@ function App({isLoggedIn, isAuthenticated}) {
 
   return (
     <>
-        <Header/>
-        <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <Route exact path="/shop" component={ShopPage}/>
-            <Route
-                exact
-                path="/sign-in-and-sign-up"
-                render={() =>
-                    isLoggedIn ? (
-                        <Redirect to='/' />
-                    ) : (
-                        <SignInSignUpPage />
-                    )
-                }
-            />
-        </Switch>
+        {/*<Switch>*/}
+        {/*    <Route exact path="/" component={HomePage}/>*/}
+        {/*</Switch>*/}
+
+        <DashboardPage></DashboardPage>
+        <LoginPage />
+        <ErrorPage />
     </>
   );
 }
