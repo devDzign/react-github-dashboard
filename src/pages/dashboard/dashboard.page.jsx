@@ -3,7 +3,7 @@ import loadingImage from '../../assets/images/preloader.gif';
 
 // Components
 
-import {User, UserInfo } from '../../components'
+import { Repos, User, UserInfo } from '../../components'
 import { getFollowersGitHub, getReposGitHub, getUserGitHub } from "../../redux/github/github.actions";
 import { connect } from "react-redux";
 import { GoRepo } from "react-icons/go";
@@ -23,6 +23,7 @@ const DashboardPage = ({user, followers, repos, isFetching, getRepos, getUser, g
             {/*<Search/>*/}
             {user && <UserInfo user={user}/> }
             {(user && followers) && <User user={user} followers={followers}/> }
+            {repos && <Repos repos={repos}/>}
         </main>
     );
 };
