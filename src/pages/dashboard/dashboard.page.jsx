@@ -1,11 +1,19 @@
 import React from 'react';
 import loadingImage from '../../assets/images/preloader.gif';
 
+// Components
+
+import { Navbar, Search, User, UserInfo } from '../../components'
+
 
 const DashboardPage = () => {
     return (
         <main>
-            <h2>Dashboard Page</h2>
+            <Navbar/>
+            <Search/>
+            <UserInfo/>
+            <User/>
+
         </main>
     );
 };

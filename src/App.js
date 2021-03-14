@@ -9,11 +9,11 @@ import './App.css';
 // Router
 import { Route, Switch } from "react-router-dom";
 
-// Pages
+// redux action
 import { isAuthenticatedUser } from "./redux/users/user.actions";
-import DashboardPage from "./pages/dashboard/dashboard.page";
-import LoginPage from "./pages/login/login.page";
-import ErrorPage from "./pages/error/Error.page";
+
+// Pages
+import { DashboardPage, LoginPage, ErrorPage } from './pages';
 
 
 function App({isLoggedIn, isAuthenticated}) {
